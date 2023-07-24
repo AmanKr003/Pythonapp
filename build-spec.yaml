@@ -5,8 +5,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - $(aws ecr get-login --region <name of the region> --no-include-email)
-      - REPOSITORY_URI=<URI of the repository in Container Registry>
+      - $(aws ecr get-login --region us-east-1 --no-include-email)
+      - REPOSITORY_URI=513530945661.dkr.ecr.us-east-1.amazonaws.com/pytonapp
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
